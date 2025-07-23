@@ -1,0 +1,416 @@
+/* Reset and base */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background: linear-gradient(180deg, #ffe6f0, #ffe6e6);
+  transition: background 0.8s ease;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Container */
+.container {
+  width: 100%;
+}
+
+/* Sections */
+section {
+  min-height: 100vh;
+  padding: 60px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0.5;
+  transition: opacity 0.5s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.active-section {
+  opacity: 1;
+}
+
+/* Section content card */
+.section-content {
+  background-color: white;
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+  width: 80%;
+  max-width: 900px;
+  text-align: center;
+}
+
+/* Headers */
+h1 {
+  font-size: 64px;
+  color: #ff5da2;
+  margin-bottom: 10px;
+}
+
+.section-content h2 {
+  background-color: #ffd6e8;
+  color: #333;
+  font-size: 32px;
+  padding: 12px 24px;
+  border-radius: 16px;
+  display: inline-block;
+  margin-bottom: 40px;
+}
+
+/* Profile Header - Home Section */
+header.profile-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 80px;
+}
+
+.profile-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 4px dashed pink;
+  box-shadow: 0 0 20px rgba(255, 182, 193, 0.8);
+}
+
+#profile-name {
+  font-size: 55px;
+  margin-bottom: 10px;
+  color: #ff69b4;
+  transition: all 0.3s ease;
+}
+
+.blurb {
+  max-width: 500px;
+  font-size: 20px;
+  background: #fff0f5;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+  color: #333;
+}
+
+/* Navigation Buttons */
+.button-nav {
+  display: flex;
+  gap: 20px;
+  margin-top: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-button {
+  padding: 18px 30px;
+  font-size: 18px;
+  background: #ffcce5;
+  color: #800040;
+  border: 2px solid #ff99cc;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(255, 192, 203, 0.6);
+}
+
+.nav-button:hover {
+  transform: scale(1.1);
+  background: #ffe6f0;
+}
+
+/* Decorative line */
+hr.decorative-line {
+  border: none;
+  border-top: 4px dotted pink;
+  width: 60%;
+  margin: 40px auto;
+}
+
+/* Section Headers */
+section:not(#home) h2 {
+  font-size: 40px;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  width: fit-content;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  font-weight: bold;
+  text-align: center;
+}
+
+/* About Section */
+#about {
+  background: linear-gradient(180deg, #e6ffe6, #ccffcc);
+}
+#about h2 {
+  background: #287d28;
+  color: #e0ffe0;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+.about-image img {
+  width: 280px;
+  border: 5px dashed #a8d5a8;
+  border-radius: 100%;
+  box-shadow: 0 0 25px rgba(100, 200, 100, 0.4);
+}
+
+/* Projects Section */
+#project {
+  background: linear-gradient(180deg, #e4e1f9, #c9c5f7);
+  flex-direction: column;
+  text-align: center;
+  padding: 80px 20px;
+  border-radius: 25px;
+  box-shadow: 0 8px 20px rgba(75, 63, 114, 0.3);
+}
+#project h2 {
+  background: #6a63b8;
+}
+.project-section p {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  color: #3c003c;
+  margin: 0 auto 25px auto;
+  font-size: 1.2em;
+}
+.project-section button {
+  margin-top: 0;
+  background-color: #c4bbe9;
+  color: #2c2b54;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  padding: 15px 30px;
+  box-shadow: 0 4px 10px rgba(75, 63, 114, 0.4);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  max-width: 300px;
+}
+.project-section button:hover {
+  background-color: #8f86d1;
+  color: white;
+}
+
+/* Contact Section */
+#contact {
+  background: linear-gradient(180deg, #fff0e6, #ffe0cc);
+  flex-direction: column;
+  padding: 60px 20px;
+}
+#contact h2 {
+  background: #ff7f50;
+  margin-bottom: 10px;
+}
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: 0 5px 10px rgba(255, 192, 203, 0.5);
+  min-width: 140px;
+  text-align: center;
+}
+.contact-item img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+/* Cloud overlay between sections */
+.cloud-overlay {
+  position: relative;
+  width: 100vw;
+  height: 100px; /* adjust height as needed */
+  margin: -30px 0; /* overlap with sections top and bottom */
+  background-image: url('cloud.png');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+  pointer-events: none;
+  user-select: none;
+  z-index: 10;
+
+  /* vertical fade out top and bottom */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+}
+
+/* Footer */
+footer {
+  background: #ffcee4;
+  padding: 20px 10px;
+  text-align: center;
+  font-size: 15px;
+  color: #800040;
+  border-top: 2px dotted #ff99cc;
+  margin-top: 40px;
+  box-shadow: inset 0 5px 10px rgba(255, 182, 193, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.strawberry-footer {
+  width: 55px;
+  display: block;
+}
+
+/* Section arrow */
+section:not(:last-child)::after {
+  content: "↓";
+  font-size: 40px;
+  color: #ff66aa;
+  animation: bounce 1.5s infinite;
+  margin-top: 40px;
+  display: block;
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+/* Section Background Transitions */
+#home.active-section {
+  background: linear-gradient(180deg, #ffe6f0, #ffe6e6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header.profile-header {
+    flex-direction: column;
+  }
+  .section-box {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .button-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-button {
+    width: 80%;
+  }
+  #about, #project, #contact {
+    flex-direction: column;
+  }
+  .about-image img {
+    width: 90%;
+    max-width: 280px;
+  }
+  .scroll-tracker {
+    display: none;
+  }
+}
+
+/* === Scroll Tracker === */
+.scroll-tracker {
+  position: fixed;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 320px;
+  width: 160px;
+  z-index: 9999;
+  user-select: none;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+/* Gradient line from dot 1 to 4 only */
+.scroll-tracker::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  height: calc(100% - 18px);
+  max-height: 240px;
+  width: 4px;
+  border-radius: 2px;
+  background: linear-gradient(to bottom, #ffcce6, #a3d977, #b8ade9, #ff9a60);
+  z-index: 1;
+}
+
+/* Scroll item (dot + label) */
+.scroll-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  width: 100%;
+  z-index: 2;
+  justify-content: flex-end;
+}
+
+/* Dot */
+.scroll-item .dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffcce6;
+  border: 3px solid white;
+  box-shadow: 0 0 6px rgba(255, 182, 193, 0.6);
+  flex-shrink: 0;
+  transition: background 0.3s ease;
+  position: relative;
+  z-index: 3;
+}
+.scroll-item .dot.active {
+  background: #d9006c;
+  border: 3px dotted #ff66aa;
+  animation: spinOutline 2.5s linear infinite;
+  box-shadow: 0 0 10px #d9006c;
+  width: 24px;
+  height: 24px;
+}
+
+/* Label */
+.scroll-item .label {
+  font-size: 16px;
+  color: #444;
+  transition: all 0.3s ease;
+  user-select: none;
+  font-weight: normal;
+  flex-shrink: 0;
+  text-align: right;
+}
+.scroll-item .label.active {
+  font-size: 20px;
+  font-weight: 700;
+  color: #d9006c;
+}
+
+/* Spin animation */
+@keyframes spinOutline {
+  0% {
+    border-color: #ff66aa;
+    transform: rotate(0deg);
+  }
+  100% {
+    border-color: #ff66aa;
+    transform: rotate(360deg);
+  }
+}

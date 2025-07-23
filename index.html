@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Strawber Car</title>
+  <link rel="icon" type="image/x-icon" href="Gnarpy-modified.png">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+
+    <section id="home" class="home-section active-section">
+      <header class="profile-header">
+        <div class="header-text">
+          <h1 id="profile-name">Strawber Car</h1>
+          <p class="blurb">
+            Haii I'm Strawber, a random game and app developer working on small projects hoping to please a few people at some point or another. Take a look around if you would like! :3
+          </p>
+        </div>
+        <img src="Gnarpy-modified.png" alt="Profile Picture" class="profile-image"/>
+      </header>
+      <hr class="decorative-line"/>
+      <nav class="button-nav">
+        <button class="nav-button" onclick="scrollToSection('about')">About</button>
+        <button class="nav-button" onclick="scrollToSection('project')">Check Out Latest Project</button>
+        <button class="nav-button" onclick="scrollToSection('contact')">Contact</button>
+      </nav>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-box about-layout">
+      <h2>About Me</h2>
+      <div class="section-content">
+        <div class="about-text">
+          <p>
+            Hello!!! I'm Strawber Car. I am a game and app developer who enjoys creating small projects as a hobby so I can maybe provide a small fun experiance for someone random, I also use this as a learning experiance to teach myself to code.
+          </p>
+          <p>
+            Most of my work is open source and usually avalable on my GitHub or Itch.io so go check those out, but for now baiii!!!
+          </p>
+        </div>
+        <div class="about-image">
+          <img src="Gnarpy-modified.png" alt="Big Visual" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest Project Section -->
+    <section id="project" class="project-section section-box">
+      <h2>Latest Project: Scroll of the Sprit Cats</h2>
+      <p>A short platformer and story game featuring turn based combat created in godot for a school project!</p>
+      <button onclick="location.href='https://github.com/StrawberCar/digitalprojectfinal-1707'" class="nav-button">Check the project out!</button>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section-box">
+      <h2>Contact Me</h2>
+      <div class="contact-icons">
+        <div class="contact-item">
+          <img src="discord.png" alt="Discord"/>
+          <p>strawber_car</p>
+        </div>
+        <div class="contact-item">
+          <img src="github.png" alt="GitHub"/>
+          <button onclick="location.href='https://github.com/StrawberCar'" class="nav-button small">GitHub</button>
+        </div>
+        <div class="contact-item">
+          <img src="itch.io.svg" alt="Itch.io"/>
+          <button onclick="location.href='https://i-consume-tables-daily.itch.io/'" class="nav-button small">Itch.io</button>
+        </div>
+        <div class="contact-item">
+          <img src="gmail.png" alt="Email"/>
+          <p>linuxjosiah@gmail.com</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Scroll Tracker -->
+  <div class="scroll-tracker">
+    <div class="scroll-item" data-section="home" onclick="scrollToSection('home')">
+      <span class="label">Home</span>
+      <div class="dot"></div>
+    </div>
+    <div class="scroll-item" data-section="about" onclick="scrollToSection('about')">
+      <span class="label">About Me</span>
+      <div class="dot"></div>
+    </div>
+    <div class="scroll-item" data-section="project" onclick="scrollToSection('project')">
+      <span class="label">Projects</span>
+      <div class="dot"></div>
+    </div>
+    <div class="scroll-item" data-section="contact" onclick="scrollToSection('contact')">
+      <span class="label">Contact</span>
+      <div class="dot"></div>
+    </div>
+    <div class="indicator"></div>
+  </div>
+
+  <footer>
+    <img src="strawberry.png" alt="Cute strawberry icon" class="strawberry-footer" />
+    <p>&copy; Strawber Car 2025</p>
+  </footer>
+
+  <script>
+    const name = document.getElementById("profile-name");
+    name.addEventListener("mouseenter", () => {
+      name.innerText = "strawber_car";
+    });
+    name.addEventListener("mouseleave", () => {
+      name.innerText = "Strawber Car";
+    });
+
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    const sections = document.querySelectorAll('section');
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.6
+    };
+
+    function callback(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active-section');
+        } else {
+          entry.target.classList.remove('active-section');
+        }
+      });
+    }
+
+    const observer = new IntersectionObserver(callback, options);
+    sections.forEach(section => observer.observe(section));
+
+    const sectionIds = ['home', 'about', 'project', 'contact'];
+    const scrollItems = document.querySelectorAll('.scroll-tracker .scroll-item');
+
+    function updateScrollTracker() {
+      let scrollPos = window.scrollY + window.innerHeight / 2;
+      let activeIndex = 0;
+
+      for (let i = 0; i < sectionIds.length; i++) {
+        const sec = document.getElementById(sectionIds[i]);
+        if (sec.offsetTop <= scrollPos) {
+          activeIndex = i;
+        }
+      }
+
+      scrollItems.forEach((item, i) => {
+        const dot = item.querySelector('.dot');
+        const label = item.querySelector('.label');
+        const isActive = i === activeIndex;
+
+        dot.classList.toggle('active', isActive);
+        label.classList.toggle('active', isActive);
+      });
+
+      const trackerHeight = document.querySelector('.scroll-tracker').clientHeight;
+      const itemCount = scrollItems.length;
+      const spacing = trackerHeight / (itemCount - 1);
+      const indicator = document.querySelector('.scroll-tracker .indicator');
+      indicator.style.top = `${activeIndex * spacing + 9}px`;
+    }
+
+    window.addEventListener('scroll', updateScrollTracker);
+    window.addEventListener('resize', updateScrollTracker);
+    window.addEventListener('load', updateScrollTracker);
+  </script>
+</body>
+</html>
